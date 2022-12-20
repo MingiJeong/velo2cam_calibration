@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<launch>
+    <arg name="stdout" default="screen" />
+    <node pkg="tf" type="static_transform_publisher" name="sensor1_rot_tf" args="0 0 0 -1.57079632679 0 -1.57079632679 rotated_head_camera head_camera 10" />
+    <node pkg="tf" type="static_transform_publisher" name="velo2cam_tf" args="0.027891 -0.00306253 -0.106387 0.17641 0.0826435 -0.018504 velodyne rotated_head_camera 100" />
+</launch>
