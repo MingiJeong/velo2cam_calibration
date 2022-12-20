@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<launch>
+    <arg name="stdout" default="screen" />
+    <node pkg="tf" type="static_transform_publisher" name="sensor1_rot_tf" args="0 0 0 -1.57079632679 0 -1.57079632679 rotated_usb_cam usb_cam 10" />
+    <node pkg="tf" type="static_transform_publisher" name="velo2cam_tf" args="-1.60877 -0.033716 0.0469249 -0.014915 0.16345 -0.0235119 os_sensor rotated_usb_cam 100" />
+</launch>
