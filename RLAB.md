@@ -55,12 +55,13 @@ This repo explains how to calibrate OS1-64 or Velodyne LiDAR with monocular came
 Please refer to the original [README.md](README.md).
 * Ouster driver: https://github.com/ouster-lidar/ouster-ros\
 The driver was origianlly contained and built by `ouster_example` repo but not they are separated.
+* Make sure you conducted `intrinsic` calibration first and the camera node is executed based on that __yaml__ file.
 
 ## Run
 The following example shows `OS1-64` for lidar.\
 Please look at the example images which I did for `VLP-16`. https://www.dropbox.com/scl/fo/k5ypzuyx7zki7jfx0jfj8/h?dl=0&rlkey=21714k1m6ui5he4h7zburidt9
 
-1. LiDAR driver running\
+### 1. LiDAR driver running
 Note that `udp_dest` is our host computer IP address which can be found in the network setting menu or by __wireshark__.\
 Note that the `os_cloud_node/points` use point clouds wrt `os_sensor` frame where __x__ axis faces forward.
 
@@ -68,7 +69,7 @@ Note that the `os_cloud_node/points` use point clouds wrt `os_sensor` frame wher
 roslaunch ouster_ros ouster.launch sensor_hostname:=os-992121000445.local udp_dest:=169.254.10.231 metadata:=/home/minkbrook/Desktop/test.json lidar_mode:=1024x10 viz:=false
 ```
 
-2. Camera driver running\
+### 2. Camera driver running
 Note that I falied to make it operate well by using my custom `usb_cam` launch. 
 ```
 rosrun usb_cam usb_cam_node
@@ -86,9 +87,10 @@ rosparam set usb_cam/pixel_format mjpeg
 rosparam set /usb_cam/camera_frame_id usb_cam
 ```
 
-3. Setup properly the calibration board. Use clamps and have a sufficient distance off from the wall.
+###  3. Setup the environment
+Install properly the calibration board. Use clamps and have a sufficient distance off from the wall.
 
-4. Camera calibration
+### 4. Camera calibration
 You should see `open-cv` popup with 4 Aruco Markers and 4 center circles detected. Aruco Marker numbers are [[1,2],[3,4]] from the top.
 ```
 roslaunch velo2cam_calibration mono_pattern.launch camera_name:=/usb_cam image_topic:=image_raw frame_name:=usb_cam
@@ -107,7 +109,7 @@ Thecloud can be filtered through the parameters filter_limit_min and filter_limi
 ![running result](screenshots/dart-20221219_1.png)
 Note, however, that the filters do not need an exact tuning as long as the areas of interest (i.e., the pattern and the surface behind it) are well defined in the LiDAR clouds.
 
-5. pattern matching
+### 5. pattern matching
 Make sure to use correct __camera_name__ and __topic__
 ```
 roslaunch velo2cam_calibration mono_pattern.launch camera_name:=/usb_cam image_topic:=image_raw frame_name:=usb_cam
