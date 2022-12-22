@@ -64,7 +64,7 @@ Please look at the example images which I did for `VLP-16`. https://www.dropbox.
 ### 1. LiDAR driver running
 Note that `udp_dest` is our host computer IP address which can be found in the network setting menu or by __wireshark__.\
 Note that the `os_cloud_node/points` use point clouds wrt `os_sensor` frame where __x__ axis faces forward.
-
+old driver. should be replaced.
 ```
 roslaunch ouster_ros ouster.launch sensor_hostname:=os-992121000445.local udp_dest:=169.254.10.231 metadata:=/home/minkbrook/Desktop/test.json lidar_mode:=1024x10 viz:=false
 ```
