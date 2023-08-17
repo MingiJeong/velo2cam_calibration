@@ -4,9 +4,36 @@ This repo explains how to calibrate OS1-64 or Velodyne LiDAR with monocular came
 ## Author
 * Mingi Jeong
 
+
 ## Requirements
 1. Ubuntu 16.04, 18.04
 2. ROS Kinetic, Melodic on host
+
+### Camera intrinsic calibration
+http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration
+http://wiki.ros.org/camera_calibration_parsers
+
+```
+rosparam set autoexposure true
+rosparam set auto_focus false
+rosparam set usb_cam/video_device /dev/video1
+rosparam set usb_cam/image_height 480
+rosparam set usb_cam/image_width 640
+rosparam set usb_cam/pixel_format mjpeg
+rosparam set /usb_cam/camera_frame_id usb_cam
+```
+
+```
+rosrun usb_cam usb_cam_node
+
+rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=/camera/image_raw camera:=/camerarosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.108 image:=/usb_cam/image_raw camera:=/usb_cam
+```
+* move the board in front of the camera and you will see the gauge go up
+* once it shows a calibration button, we can click. Then click save --> goes to /tmp/calibrationfile.tar.gz
+* extract .tar.gz file 
+* mv ost.txt ost.ini
+* rosrun  camera_calibration_parsers convert  ost.ini cam_with_ouster.yml
+
 
 ## Directory Tree
 ```
