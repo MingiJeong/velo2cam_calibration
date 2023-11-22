@@ -34,7 +34,7 @@
 
 #define TARGET_NUM_CIRCLES 4
 #define TARGET_RADIUS 0.12
-#define GEOMETRY_TOLERANCE 0.06
+#define GEOMETRY_TOLERANCE 0.5
 
 using namespace std;
 

@@ -40,7 +40,7 @@
       filter_limit_negative: False
       max_queue_size: 1
     </rosparam>
-  </node>
+  </node> 
 
   <node pkg="velo2cam_calibration" type="lidar_pattern" name="lidar_pattern_$(arg sensor_id)" output="screen">
     <remap from="~cloud1" to="/lidar_pattern_$(arg sensor_id)/zyx_filtered"/>
@@ -48,6 +48,6 @@
       passthrough_radius_min: 1.0
       passthrough_radius_max: 6.0
     </rosparam>
-  </node>
+  </node> 
 
 </launch>
