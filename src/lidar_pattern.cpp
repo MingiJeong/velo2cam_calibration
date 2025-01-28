@@ -517,8 +517,10 @@ int main(int argc, char **argv) {
 
   string csv_name;
 
-  nh.param("delta_width_circles", delta_width_circles_, 0.3175); // 0.5
-  nh.param("delta_height_circles", delta_height_circles_, 0.254); // 0.4
+  // nh.param("delta_width_circles", delta_width_circles_, 0.3175); // 0.5
+  // nh.param("delta_height_circles", delta_height_circles_, 0.254); // 0.4
+  nh.param("delta_width_circles", delta_width_circles_, 0.250); // 0.5 korea plate
+  nh.param("delta_height_circles", delta_height_circles_, 0.200); // 0.4 korea plate
   nh_.param("plane_threshold", plane_threshold_, 0.1);
   nh_.param("gradient_threshold", gradient_threshold_, 0.1);
   nh_.param("plane_distance_inliers", plane_distance_inliers_, 0.1);
@@ -527,7 +529,7 @@ int main(int argc, char **argv) {
   nh_.param("cluster_tolerance", cluster_tolerance_, 0.05);
   nh_.param("min_centers_found", min_centers_found_, TARGET_NUM_CIRCLES);
   nh_.param("min_cluster_factor", min_cluster_factor_, 0.5);
-  nh_.param("rings_count", rings_count_, 16); // 64
+  nh_.param("rings_count", rings_count_, 64); // 64 Ouster, 16 Velodyne
   nh_.param("skip_warmup", skip_warmup_, false);
   nh_.param("save_to_file", save_to_file_, false);
   nh_.param("csv_name", csv_name,

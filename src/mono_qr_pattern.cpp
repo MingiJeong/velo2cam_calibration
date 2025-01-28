@@ -538,11 +538,16 @@ int main(int argc, char **argv) {
 
   // nh.param("delta_width_circles", delta_width_circles_, 0.5);
   // nh.param("delta_height_circles", delta_height_circles_, 0.4);
-  nh.param("delta_width_circles", delta_width_circles_, 0.3175); // 0.5
-  nh.param("delta_height_circles", delta_height_circles_, 0.254); // 0.4
-  nh_.param("marker_size", marker_size_, 0.127);
-  nh_.param("delta_width_qr_center_", delta_width_qr_center_, 0.34925);
-  nh_.param("delta_height_qr_center_", delta_height_qr_center_, 0.22225);
+  // nh.param("delta_width_circles", delta_width_circles_, 0.3175); // 0.5
+  // nh.param("delta_height_circles", delta_height_circles_, 0.254); // 0.4
+  nh.param("delta_width_circles", delta_width_circles_, 0.250); // 0.5 korea plate
+  nh.param("delta_height_circles", delta_height_circles_, 0.200); // 0.4 korea plate
+  nh_.param("marker_size", marker_size_, 0.100); // Korea plate
+  nh_.param("delta_width_qr_center_", delta_width_qr_center_, 0.275); // Korea plate
+  nh_.param("delta_height_qr_center_", delta_height_qr_center_, 0.175); // Korea plate
+  // nh_.param("marker_size", marker_size_, 0.127);
+  // nh_.param("delta_width_qr_center_", delta_width_qr_center_, 0.34925);
+  // nh_.param("delta_height_qr_center_", delta_height_qr_center_, 0.22225);
     // nh_.param("marker_size", marker_size_, 0.20);
   //  nh_.param("delta_width_qr_center_", delta_width_qr_center_, 0.55);
   // nh_.param("delta_height_qr_center_", delta_height_qr_center_, 0.35);
